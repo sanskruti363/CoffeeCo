@@ -1,0 +1,36 @@
+<nav class="sticky top-0 z-50 ">
+    <div class="flex flex-wrap items-center justify-between px-4 py-4 backdrop-blur-sm">
+        <a (click)="goToHome()" class="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer">
+            <span class="self-center text-sm lg:text-xl font-semibold whitespace-nowrap text-white">Coffee<span
+                    class="text-amber-700">Co</span></span>
+        </a>
+        <button data-collapse-toggle="navbar-dropdown" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            aria-controls="navbar-dropdown" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto z-50" id="navbar-dropdown">
+            <ul class="flex flex-col font-medium md:space-x-4 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+                <li>
+                    <a class="text-sm lg:text-base block py-2 px-3 text-white rounded md:bg-transparent cursor-pointer"
+                        aria-current="page" (click)="goToHome()">Home</a>
+                </li>
+                <li>
+                    <a class="text-sm lg:text-base block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 cursor-pointer"
+                        (click)="goToStore()">Store</a>
+                </li>
+
+                <li>
+                    <a class="text-sm lg:text-base block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 cursor-pointer"
+                        (click)="goToMyAccount()">My Account</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<router-outlet class="h-full w-full"></router-outlet>

@@ -1,0 +1,43 @@
+<div class="px-48 py-10 flex flex-col h-full w-full overflow-y-auto">
+
+    <!-- Loading -->
+    <ng-container *ngIf="isDataLoading">
+        <div class="h-full w-full flex items-center justify-center">
+            <mat-spinner></mat-spinner>
+        </div>
+    </ng-container>
+
+    <!-- Not loading -->
+    <ng-container *ngIf="!isDataLoading">
+
+        <!-- authenticated -->
+        <ng-container *ngIf="(isAuthenticated$ | async)">
+            <button mat-flat-button color="primary" class="w-20 my-2 !fixed right-10 bottom-8" (click)="logOut()">
+                Logout</button>
+            <div class="text-white">
+                <h2 class="text-2xl">My orders</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-4">
+                    <div class="border border-gray-400 rounded-md p-3" *ngFor="let order of orders">
+                        <p class="text-base">Title: {{order.title}}</p>
+                        <img [src]="order.image_url" alt="Coffee" class="product-listing-image rounded-md my-2">
+                        <p class="text-base my-2">Status: {{order.status}}</p>
+                        <p class="text-base my-2">OrderId: {{order.order_id}}</p>
+                        <p class="text-base my-2">Payment Id: {{order.payment_id}}</p>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- Not authenticated -->
+        <ng-container *ngIf="!(isAuthenticated$ | async)">
+            <div class="flex flex-col justify-center items-center h-full">
+                <div class="w-[80vw] lg:w-[35vw]">
+                    <app-login *ngIf="isLoginActive"></app-login>
+                    <app-register *ngIf="!isLoginActive"></app-register>
+                    <button mat-flat-button color="primary" class="w-full my-2" (click)="changeLocation()">
+                        {{isLoginActive ? "Register" : "Login"}}</button>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>

@@ -1,0 +1,10 @@
+:host {
+    height: 100%;
+    overflow: auto;
+}
+
+.product-image {
+    height: 200px;
+    width: 300px;
+    object-fit: cover;
+}

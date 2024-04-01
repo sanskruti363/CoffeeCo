@@ -1,0 +1,11 @@
+:host {
+    height: 100%;
+    display: block;
+    overflow: auto;
+}
+
+.product-listing-image {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}

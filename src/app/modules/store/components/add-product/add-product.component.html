@@ -1,0 +1,25 @@
+<h2 mat-dialog-title="">Add product</h2>
+<mat-dialog-content [formGroup]="productAddForm" class="flex flex-col">
+    <mat-form-field class="width w-100" appearance="outline" floatLabel="auto">
+        <mat-label>Product name</mat-label>
+        <input matInput="matInput" placeholder="Product name" formControlName="title" />
+    </mat-form-field>
+    <mat-form-field class="width w-100" appearance="outline" floatLabel="auto">
+        <mat-label>Product description</mat-label>
+        <input matInput="matInput" placeholder="Product descriptions" formControlName="description" />
+    </mat-form-field>
+    <mat-form-field class="width w-100" appearance="outline" floatLabel="auto">
+        <mat-label>Product price</mat-label>
+        <input matInput="matInput" type="number" placeholder="Product price" formControlName="price" />
+    </mat-form-field>
+    <mat-form-field class="width w-100" appearance="outline" floatLabel="auto">
+        <mat-label>Product quantity</mat-label>
+        <input matInput="matInput" type="number" placeholder="Product quantity" formControlName="quantity_available" />
+    </mat-form-field>
+    <mat-form-field class="width w-100" appearance="outline" floatLabel="auto">
+        <mat-label>Image Url</mat-label>
+        <input matInput="matInput" type="text" placeholder="Image Url" formControlName="image_url" />
+    </mat-form-field>
+</mat-dialog-content>
+<button class="btn btn-primary" type="button" mat-raised-button="mat-raised-button" color="primary"
+    (click)="saveDetails()">Save</button>

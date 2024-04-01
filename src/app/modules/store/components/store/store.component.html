@@ -1,0 +1,33 @@
+<div class="flex flex-col gap-4 my-5 mx-20 lg:mx-40 h-full overflow-y-auto">
+
+    <!-- Loading -->
+    <ng-container *ngIf="itemsLoading">
+        <div class="h-full w-full flex items-center justify-center">
+            <mat-spinner></mat-spinner>
+        </div>
+    </ng-container>
+
+    <!-- Not loading -->
+    <ng-container *ngIf="!itemsLoading">
+        <!-- Title -->
+        <div class="test-base lg:text-2xl font-semibold text-white">Please Select the Order</div>
+
+        <!-- Add actuon -->
+        <button class="w-40" *ngIf="(isSuperUser$ | async)" mat-flat-button color="primary" type="button"
+            (click)="addProduct()">Add
+            product</button>
+
+        <!-- product listing -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-12">
+            <div class="border border-gray-100 rounded-md p-3" *ngFor="let product of products">
+                <h5 class="text-base lg:text-xl font-semibold text-white">{{product.title}}</h5>
+                <img src="{{product.image_url}}" alt="Coffee" class="product-listing-image rounded-md my-2">
+                <div class="text-base py-1 text-white">Rs. {{product.price}}</div>
+                <div class="card-text py-1 text-white">Quantity available - {{product.quantity_available}}</div>
+                <button class="btn btn-outline-primary mt-3" type="button" mat-raised-button="mat-raised-button"
+                    color="primary" (click)="onClickBuyNow(product)">Order now</button>
+            </div>
+        </div>
+    </ng-container>
+
+</div>

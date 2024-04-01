@@ -1,0 +1,17 @@
+<div [formGroup]="loginForm">
+    <form class="flex flex-col gap-2 text-white">
+        <h1 class="font-bold text-xl my-2">Please Sign In</h1>
+        <div class="form-group mt-2 flex flex-col">
+            <label class="text-base">Email</label>
+            <input class="form-control mt-1 border border-gray-500 rounded-md text-black" formControlName="email"
+                type="email" placeholder="Enter email" />
+        </div>
+        <div class="form-group mt-2 flex flex-col">
+            <label class="text-base">Password</label>
+            <input class="form-control mt-1 border border-gray-500 rounded-md text-black" formControlName="password"
+                type="password" placeholder="Password" />
+        </div>
+        <button class="my-3 w-full" mat-raised-button="mat-raised-button" color="primary" [disabled]="loginForm.invalid"
+            (click)="login()">Login</button>
+    </form>
+</div>
